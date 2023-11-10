@@ -1,7 +1,7 @@
 Project Title: Exploratory Data Analysis on Film Data Using PostgreSQL
 
 Project Description:
-In this project, students will apply the SQL skills they have learned throughout the course to perform exploratory data analysis on the "inidata" database, 
+In this project, I will apply my SQL skills to perform exploratory data analysis on the "inidata" database, 
 which contains information about films, people, reviews, and roles. The project will focus on retrieving, filtering, 
 and analyzing data to answer real-life business questions related to the film industry.
 
