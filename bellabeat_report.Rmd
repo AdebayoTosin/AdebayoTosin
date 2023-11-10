@@ -7,7 +7,10 @@ output: html_document
 
 # STATEMENT OF BUSINESS TASK
 
-This project focus on how to improve the marketing strategy of bellabeat products by using data to gain insight on how customer use non bellabeat smart device, which will unlock new growth opportunity for the company to ensure the stakeholders make best and inform decisions through our recommendations.
+This project focus on how to improve the marketing strategy of bellabeat products 
+by using data to gain insight on how customer use non bellabeat smart device,
+which will unlock new growth opportunity for the company to ensure 
+the stakeholders make best and inform decisions through our recommendations.
 
 The stakeholderS;
 
@@ -17,13 +20,18 @@ The stakeholderS;
 
 ### DESCRIPTION OF THE DATA SOURCE USED
 
-FitBit Fitness Tracker Data (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set contains personal fitness tracker from thirty fitbit users. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes information about daily activity, steps,sleep and heart rate that can be used to explore users' habits.
+FitBit Fitness Tracker Data (CC0: Public Domain, dataset made available through Mobius): 
+This Kaggle data set contains personal fitness tracker from thirty fitbit users.
+Thirty eligible Fitbit users consented to the submission of personal tracker data, 
+including minute-level output for physical activity, heart rate, and sleep monitoring.
+It includes information about daily activity, steps,sleep and heart rate that can be used to explore users' habits.
 
 The data is long dataset,and it is sorted without a missing values,all missing values as been replaced with 0.
 
 The limitation on the data are;
 
--   we have data of 32 users and we are not sure if they have the proper representation of the whole population as the demographic information are not in the data, we may have sampling bias
+-   we have data of 32 users and we are not sure if they have the proper representation of the whole population
+as the demographic information are not in the data, we may have sampling bias
 -   Also the data is not current and is limited to just 2month of survey records
 
 ## CLEANING AND DATA MANIPULATION PROCESSES
@@ -52,7 +60,9 @@ library(ggplot2)
 
 ### Importing datasets
 
-In this analysis we will be focusing dataset with daily time frame records, because intentifying trends on high time frame are more reliable. here are following dataset we will import;
+In this analysis we will be focusing dataset with daily time frame records,
+because intentifying trends on high time frame are more reliable.
+Here are following dataset we will import;
 
 -   dailyCalories_merged
 -   dailyIntensities_merged
@@ -196,7 +206,8 @@ Observation from Analysis are;
 -   Majority of activities are sedentary which is 991 minites
 -   On the average the participant sleep for 7 hours
 -   average step per day is 7638 which is abit low
--   they burn 2304 calories perday on the average, general study says 2000 is the minimum but with future research we can determin the average.
+-   they burn 2304 calories perday on the average, 
+general study says 2000 is the minimum but with future research we can determin the average.
 
 ### VISUALIZATION
 
@@ -228,7 +239,8 @@ ggplot(data = dailysteps)+
   labs(title = "DailySteps by weekdays chart")
 ```
 
-Daily caalories by weekdays charts: this visualization demonstrate that there is low burn of calories on Tuesday which demonstrate further more correlation between calories and daily step
+Daily caalories by weekdays charts: this visualization demonstrate that there is low burn of calories on Tuesday 
+which demonstrate further more correlation between calories and daily step
 
 ```{r dailycalories by weekday}
 ggplot(data = dailycalories)+
@@ -246,14 +258,23 @@ ggplot(data = dailycalories)+
 
 ## Recommendation
 
-it is important to note I have limitation on the datasets of 32 participants in the survey activities and also I am not given there demographic information. To this effect I am not sure if the survey represent the total population,therefore, our findings might be bias.
+it is important to note I have limitation on the datasets of 32 participants in the survey activities 
+and also I am not given there demographic information. 
+To this effect I am not sure if the survey represent the total population,therefore, our findings might be bias.
 
-Here are the insight I got from the Analysis
+Here are the insight I got from the Analysis;
 
-* My Analysis show strong correlation between dailysteps,daily calories burn and weight loss. Also summary shows average Total steps of 7638 is low compare to CDC average, They found that taking 8,000 steps per day was associated with a 51% lower risk for all-cause mortality (or death from all causes). Taking 12,000 steps per day was associated with a 65% lower risk compared with taking 4,000 steps.
+* My Analysis show strong correlation between dailysteps,daily calories burn and weight loss. 
+Also summary shows average Total steps of 7638 is low compare to CDC average, 
+They found that taking 8,000 steps per day was associated with a 51% lower risk for all-cause mortality (or death from all causes).
+Taking 12,000 steps per day was associated with a 65% lower risk compared with taking 4,000 steps.
 
-secondly there is wide margin between sedentary activities and active activities 991.2 and 21.16 respectively, this shows that there is room for improvement for users on average daily steps.
+secondly there is wide margin between sedentary activities and active activities 991.2 and 21.16 respectively,
+this shows that there is room for improvement for users on average daily steps.
 
-I recommend constant reminder and users record on Bellabeat App, also creation of competition and reward systems for Bellabeat memberships for high performing members,this will be a source of motivation for users and could even further promote adoption of the bellabeat product by non users
+I recommend constant reminder and users record on Bellabeat App, 
+also creation of competition and reward systems for Bellabeat memberships for high performing members,
+this will be a source of motivation for users and could even further promote adoption of the bellabeat product by non users
 
-* My Analysis show there is low dailystep, daily calories burn on Tuesdays, but with more survey and data we can investigate further on why and how we can leverage on it.
+* My Analysis show there is low dailystep, daily calories burn on Tuesdays,
+but with more survey and data we can investigate further on why and how we can leverage on it.
