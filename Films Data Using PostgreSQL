@@ -107,16 +107,21 @@ GROUP BY film_id
 
 --Identify films with the highest number of user and critic reviews
 
-SELECT film_id, num_user,num_critic
+SELECT title,film_id, num_user,num_critic
 FROM reviews
+LEFT JOIN films
+ON reviews.film_id=films.id
 WHERE num_user IS NOT NULL
 ORDER BY num_user DESC,num_critic DESC
 
 --Which films have the most Facebook likes, and is there a correlation with their IMDb scores
 
-SELECT film_id, facebook_likes, imdb_score
+SELECT title, film_id, AVG(num_user) AS average_num_user,
+	AVG(num_critic) AS average_num_critic
 FROM reviews
-ORDER BY facebook_likes DESC, imdb_score DESC
+LEFT JOIN films
+	ON reviews.film_id=films.id
+GROUP BY film_id,title
 
 
 
