@@ -14,7 +14,7 @@ Combine data from multiple tables using SQL joins.
 
 --How many products are available in the database
 
-SELECT COUNT(DISTINCT product_name)
+SELECT COUNT(DISTINCT product_name) AS num_product
 FROM product
 
 --Can you list all products with prices above $20
@@ -42,12 +42,14 @@ WHERE product_name ILIKE '%organic%'
 	OR product_name ILIKE '%Cappuccino%'
 
 --Identify the top-selling products in terms of quantity sold.
+
 SELECT product.product_name, product.product_id, COUNT(quantity)
 FROM sales_detail AS sales
 LEFT JOIN product
 	ON sales.product_id = product.product_id
 GROUP BY product.product_id, product.product_name
-ORDER BY count DESC
+ORDER BY count DESC 
+LIMIT 10
 
 --What is the total quantity sold for the “Civet Cat” product
 
@@ -69,6 +71,7 @@ WHERE product_name = 'English Breakfast'
 GROUP BY product.product_name
 
 --How many staff members work in the outlet "224 E 57th Street, New York"
+
 SELECT street_address, city, COUNT(staff_id)
 FROM sales_outlet AS sales
 	INNER JOIN staff 
