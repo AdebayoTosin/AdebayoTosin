@@ -36,30 +36,21 @@ GROUP BY language
 ORDER BY count DESC
 LIMIT 3
 
---Which country has made the highest profit from movies? [Tip: To avoid a biased result, use average instead of sum.]
+--Which country has made the highest profit from movies?
 SELECT 
     (gross - budget) AS profit, 
-    AVG(gross - budget) OVER (PARTITION BY country) AS avg_profit_by_country, 
-	country
-FROM 
-    films
-ORDER BY
-	avg_profit_by_country DESC
-
+FROM films
+WHERE (gross - budget) IS NOT NULL
+ORDER BY (gross - budget) 
+	
 --Which movie made the highest profit in the 21st century
 
 SELECT 
-    (gross - budget) AS profit, 
-    AVG(gross - budget) OVER (PARTITION BY country) AS avg_profit_by_country, 
-	country, title, release_year
-FROM 
-    films
-WHERE 
-	release_year >1999
-	AND (gross - budget) is not null
-
-ORDER BY
-	avg_profit_by_country DESC
+    title,(gross - budget) AS profit, release_year
+FROM films
+WHERE (gross - budget) IS NOT NULL
+	AND release_year >1999
+ORDER BY profit DESC
 
 --How many people in the database are still alive (based on birthdate and death date)
 
@@ -116,12 +107,10 @@ ORDER BY num_user DESC,num_critic DESC
 
 --Which films have the most Facebook likes, and is there a correlation with their IMDb scores
 
-SELECT title, film_id, AVG(num_user) AS average_num_user,
-	AVG(num_critic) AS average_num_critic
+SELECT facebook_likes,imdb_score
 FROM reviews
-LEFT JOIN films
-	ON reviews.film_id=films.id
-GROUP BY film_id,title
+WHERE facebook_likes  <>0
+ORDER BY facebook_likes
 
 
 
